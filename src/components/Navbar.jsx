@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const { pathname } = useLocation()
 
   const linkClass = (path) =>
@@ -14,9 +14,17 @@ export default function Navbar() {
         <span className="font-mono font-bold text-green-400 tracking-tight">
           tech-ernest
         </span>
-        <div className="flex gap-6 text-sm">
+        <div className="flex items-center gap-6 text-sm">
           <Link to="/" className={linkClass('/')}>Portfolio</Link>
           <Link to="/tracker" className={linkClass('/tracker')}>Tracker</Link>
+          <Link to="/resources" className={linkClass('/resources')}>Resources</Link>
+          <button
+            onClick={toggleTheme}
+            className="text-gray-400 hover:text-gray-200 transition-colors text-base leading-none"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
         </div>
       </div>
     </nav>
