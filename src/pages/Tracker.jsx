@@ -10,21 +10,42 @@ const colors = {
 }
 
 function loadProgress() {
-  try {
-    return JSON.parse(localStorage.getItem('soc-progress') || '{}')
-  } catch {
-    return {}
-  }
+  try { return JSON.parse(localStorage.getItem('soc-progress') || '{}') }
+  catch { return {} }
+}
+
+function loadLog() {
+  try { return JSON.parse(localStorage.getItem('soc-log') || '[]') }
+  catch { return [] }
 }
 
 export default function Tracker() {
   const [checked, setChecked] = useState(loadProgress)
+  const [log, setLog] = useState(loadLog)
+  const [logInput, setLogInput] = useState('')
 
   useEffect(() => {
     localStorage.setItem('soc-progress', JSON.stringify(checked))
   }, [checked])
 
+  useEffect(() => {
+    localStorage.setItem('soc-log', JSON.stringify(log))
+  }, [log])
+
   const toggle = (id) => setChecked((prev) => ({ ...prev, [id]: !prev[id] }))
+
+  const addEntry = () => {
+    if (!logInput.trim()) return
+    const entry = {
+      id: Date.now(),
+      text: logInput.trim(),
+      date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }),
+    }
+    setLog((prev) => [entry, ...prev])
+    setLogInput('')
+  }
+
+  const deleteEntry = (id) => setLog((prev) => prev.filter((e) => e.id !== id))
 
   const allTasks = phases.flatMap((p) => p.tasks)
   const totalDone = allTasks.filter((t) => checked[t.id]).length
@@ -76,7 +97,13 @@ export default function Tracker() {
                     {phase.months} &middot; {phase.duration}
                   </p>
                 </div>
-                <span className={`font-mono font-bold text-sm ${c.text}`}>{phasePct}%</span>
+                {phasePct === 100 ? (
+                  <span className="flex items-center gap-1.5 bg-green-500/20 border border-green-500/40 text-green-400 text-xs font-semibold px-3 py-1 rounded-full">
+                    ✓ Complete
+                  </span>
+                ) : (
+                  <span className={`font-mono font-bold text-sm ${c.text}`}>{phasePct}%</span>
+                )}
               </div>
 
               <div className="bg-gray-800 rounded-full h-1.5">
@@ -124,6 +151,48 @@ export default function Tracker() {
             </div>
           )
         })}
+      </section>
+
+      {/* Study log */}
+      <section className="bg-gray-900 border border-gray-800 rounded-xl p-5 space-y-4">
+        <h3 className="font-semibold text-white">Study Log</h3>
+        <p className="text-gray-500 text-xs">Log each session in one line. Builds evidence for interviews.</p>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={logInput}
+            onChange={(e) => setLogInput(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && addEntry()}
+            placeholder="e.g. Completed THM Splunk room, analysed 3 alerts"
+            className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-green-500 transition-colors"
+          />
+          <button
+            onClick={addEntry}
+            className="bg-green-500 hover:bg-green-400 transition-colors text-gray-950 font-semibold text-sm px-4 py-2 rounded-lg shrink-0"
+          >
+            Add
+          </button>
+        </div>
+        {log.length === 0 ? (
+          <p className="text-gray-600 text-sm">No entries yet — log your first session above.</p>
+        ) : (
+          <ul className="space-y-2 max-h-72 overflow-y-auto pr-1">
+            {log.map((entry) => (
+              <li key={entry.id} className="flex items-start justify-between gap-3 bg-gray-800/60 rounded-lg px-3 py-2">
+                <div className="flex gap-3 items-start min-w-0">
+                  <span className="text-gray-500 text-xs shrink-0 pt-0.5">{entry.date}</span>
+                  <span className="text-gray-300 text-sm break-words">{entry.text}</span>
+                </div>
+                <button
+                  onClick={() => deleteEntry(entry.id)}
+                  className="text-gray-600 hover:text-red-400 transition-colors text-xs shrink-0 pt-0.5"
+                >
+                  ✕
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       {/* Weekly schedule reference */}

@@ -48,7 +48,7 @@ export default function Portfolio() {
           now transitioning full-time into cybersecurity. Targeting a SOC Analyst role by
           end of 2026.
         </p>
-        <div className="flex gap-3 pt-1">
+        <div className="flex flex-wrap gap-3 pt-1">
           <Link
             to="/tracker"
             className="bg-green-500 hover:bg-green-400 transition-colors text-gray-950 font-semibold text-sm px-5 py-2 rounded-lg"
@@ -62,6 +62,14 @@ export default function Portfolio() {
             className="border border-gray-700 hover:border-gray-500 transition-colors text-gray-300 text-sm px-5 py-2 rounded-lg"
           >
             GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ernestas-petrosius"
+            target="_blank"
+            rel="noreferrer"
+            className="border border-gray-700 hover:border-blue-500 transition-colors text-gray-300 text-sm px-5 py-2 rounded-lg"
+          >
+            LinkedIn
           </a>
         </div>
       </section>
