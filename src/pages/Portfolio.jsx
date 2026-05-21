@@ -64,7 +64,7 @@ export default function Portfolio() {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/ernestas-petrosius"
+            href="https://www.linkedin.com/in/ernestas-petrosius-7581a8243/"
             target="_blank"
             rel="noreferrer"
             className="border border-gray-700 hover:border-blue-500 transition-colors text-gray-300 text-sm px-5 py-2 rounded-lg"
