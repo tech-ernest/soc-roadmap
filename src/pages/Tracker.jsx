@@ -96,15 +96,27 @@ export default function Tracker() {
                         onChange={() => toggle(task.id)}
                         className="w-4 h-4 rounded accent-green-500 cursor-pointer shrink-0"
                       />
-                      <span
-                        className={`text-sm transition-colors ${
-                          checked[task.id]
-                            ? 'line-through text-gray-600'
-                            : 'text-gray-300 group-hover:text-white'
-                        }`}
-                      >
-                        {task.label}
-                      </span>
+                      {task.link && !checked[task.id] ? (
+                        <a
+                          href={task.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-sm text-gray-300 hover:text-green-400 underline underline-offset-2 decoration-gray-600 hover:decoration-green-400 transition-colors"
+                        >
+                          {task.label} ↗
+                        </a>
+                      ) : (
+                        <span
+                          className={`text-sm transition-colors ${
+                            checked[task.id]
+                              ? 'line-through text-gray-600'
+                              : 'text-gray-300 group-hover:text-white'
+                          }`}
+                        >
+                          {task.label}
+                        </span>
+                      )}
                     </label>
                   </li>
                 ))}

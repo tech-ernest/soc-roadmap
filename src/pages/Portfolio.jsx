@@ -87,14 +87,17 @@ export default function Portfolio() {
         <h2 className="text-lg font-semibold text-white">Completed Certifications</h2>
         <div className="flex flex-wrap gap-3">
           {completedCerts.map((cert) => (
-            <div
+            <a
               key={cert.name}
-              className="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-lg px-4 py-2"
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-lg px-4 py-2 hover:border-green-400/60 transition-colors"
             >
               <span className="text-green-400 text-sm">✓</span>
               <span className="text-gray-200 text-sm">{cert.name}</span>
               <span className="text-gray-500 text-xs">{cert.date}</span>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -114,7 +117,14 @@ export default function Portfolio() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-4 flex-wrap">
                   <div>
-                    <h3 className="font-semibold text-white">{phase.name}</h3>
+                    <a
+                      href={phase.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-semibold text-white hover:text-green-400 transition-colors"
+                    >
+                      {phase.name} ↗
+                    </a>
                     <p className="text-gray-500 text-sm mt-0.5">
                       {phase.months} &middot; {phase.duration}
                     </p>

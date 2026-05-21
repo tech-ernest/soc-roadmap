@@ -7,9 +7,10 @@ export const phases = [
     months: 'Jun 2026',
     status: 'planned',
     cert: 'Google Cybersecurity Certificate',
+    link: 'https://www.coursera.org/professional-certificates/google-cybersecurity',
     color: 'yellow',
     tasks: [
-      { id: 'google-1', label: 'Enrol on Coursera' },
+      { id: 'google-1', label: 'Enrol on Coursera', link: 'https://www.coursera.org/professional-certificates/google-cybersecurity' },
       { id: 'google-2', label: 'Complete all 8 courses' },
       { id: 'google-3', label: 'Earn the Google Cybersecurity Certificate' },
       { id: 'google-4', label: 'Unlock 30% Security+ discount code' },
@@ -23,9 +24,10 @@ export const phases = [
     months: 'Jun – Jul 2026',
     status: 'planned',
     cert: 'ISO 27001 Lead Auditor',
+    link: 'https://grcmastery.com',
     color: 'blue',
     tasks: [
-      { id: 'grc-1', label: 'Enrol in GRC Mastery course' },
+      { id: 'grc-1', label: 'Enrol in GRC Mastery course', link: 'https://grcmastery.com' },
       { id: 'grc-2', label: 'Complete all GRC modules' },
       { id: 'grc-3', label: 'Sit ISO 27001 Lead Auditor exam' },
       { id: 'grc-4', label: 'Add cert to CV and LinkedIn' },
@@ -39,11 +41,12 @@ export const phases = [
     months: 'Aug 2026',
     status: 'planned',
     cert: 'CompTIA Security+ SY0-701',
+    link: 'https://www.comptia.org/certifications/security',
     color: 'red',
     tasks: [
-      { id: 'sec-1', label: 'Read Sybex Security+ book' },
+      { id: 'sec-1', label: 'Read Sybex Security+ book', link: 'https://www.amazon.co.uk/CompTIA-Security-Study-Guide-SY0-701/dp/1394211449' },
       { id: 'sec-2', label: 'Complete practice exams (target >85%)' },
-      { id: 'sec-3', label: 'Book and sit the exam (use Google cert discount)' },
+      { id: 'sec-3', label: 'Book and sit the exam (use Google cert discount)', link: 'https://www.comptia.org/certifications/security' },
       { id: 'sec-4', label: 'Add cert to CV and LinkedIn' },
     ],
   },
@@ -55,12 +58,13 @@ export const phases = [
     months: 'Aug – Sep 2026',
     status: 'in-progress',
     cert: 'TryHackMe SAL1 Certificate',
+    link: 'https://tryhackme.com/certification/security-analyst-level-1',
     color: 'green',
     tasks: [
-      { id: 'thm-1', label: 'Complete all SOC Level 1 rooms' },
+      { id: 'thm-1', label: 'Complete all SOC Level 1 rooms', link: 'https://tryhackme.com/path/outline/soclevel1' },
       { id: 'thm-2', label: 'Finish the SOC simulator' },
       { id: 'thm-3', label: 'Log every lab session' },
-      { id: 'thm-4', label: 'Earn the SAL1 certificate' },
+      { id: 'thm-4', label: 'Earn the SAL1 certificate', link: 'https://tryhackme.com/certification/security-analyst-level-1' },
     ],
   },
   {
@@ -71,10 +75,11 @@ export const phases = [
     months: 'Sep – Oct 2026',
     status: 'planned',
     cert: 'CyberDefenders Blue Team Labs',
+    link: 'https://cyberdefenders.org',
     color: 'purple',
     tasks: [
-      { id: 'cd-1', label: 'Complete CyberDefenders Blue Team Labs' },
-      { id: 'cd-2', label: 'Complete LetsDefend SOC Analyst path' },
+      { id: 'cd-1', label: 'Complete CyberDefenders Blue Team Labs', link: 'https://cyberdefenders.org' },
+      { id: 'cd-2', label: 'Complete LetsDefend SOC Analyst path', link: 'https://app.letsdefend.io/path/soc-analyst-learning-path' },
       { id: 'cd-3', label: 'Investigate and document real-world cases' },
       { id: 'cd-4', label: 'Earn CyberDefenders certificate' },
     ],
@@ -87,11 +92,12 @@ export const phases = [
     months: 'Oct – Nov 2026',
     status: 'planned',
     cert: 'HTB CDSA',
+    link: 'https://academy.hackthebox.com/preview/certifications/htb-certified-defensive-security-analyst',
     color: 'green',
     tasks: [
-      { id: 'htb-1', label: 'Complete HTB defensive security modules' },
-      { id: 'htb-2', label: 'Practise on HTB Sherlocks (blue team challenges)' },
-      { id: 'htb-3', label: 'Sit the CDSA exam' },
+      { id: 'htb-1', label: 'Complete HTB defensive security modules', link: 'https://academy.hackthebox.com' },
+      { id: 'htb-2', label: 'Practise on HTB Sherlocks (blue team challenges)', link: 'https://app.hackthebox.com/sherlocks' },
+      { id: 'htb-3', label: 'Sit the CDSA exam', link: 'https://academy.hackthebox.com/preview/certifications/htb-certified-defensive-security-analyst' },
       { id: 'htb-4', label: 'Add cert to CV and LinkedIn' },
     ],
   },
@@ -103,18 +109,24 @@ export const phases = [
     months: 'Nov 2026+',
     status: 'planned',
     cert: 'Microsoft Cybersecurity Analyst Certificate',
+    link: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/',
     color: 'blue',
     tasks: [
-      { id: 'az-1', label: 'Complete AZ-900 Azure Fundamentals' },
-      { id: 'az-2', label: 'Complete Azure Security Fundamentals' },
-      { id: 'az-3', label: 'Earn Microsoft Cybersecurity Analyst certificate' },
+      { id: 'az-1', label: 'Complete AZ-900 Azure Fundamentals', link: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/' },
+      { id: 'az-2', label: 'Complete Azure Security Fundamentals', link: 'https://learn.microsoft.com/en-us/credentials/certifications/security-fundamentals/' },
+      { id: 'az-3', label: 'Earn Microsoft Cybersecurity Analyst certificate', link: 'https://www.coursera.org/professional-certificates/microsoft-cybersecurity-analyst' },
       { id: 'az-4', label: 'Add certs to CV and LinkedIn' },
     ],
   },
 ]
 
 export const completedCerts = [
-  { name: 'Microsoft SC-900', date: '2025', issuer: 'Microsoft' },
+  {
+    name: 'Microsoft SC-900',
+    date: '2025',
+    issuer: 'Microsoft',
+    link: 'https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/',
+  },
 ]
 
 export const skills = [
